@@ -25,7 +25,7 @@ public class FixtureBot {
         return this;
     }
 
-    public FixtureBot insert(){
+    public FixtureBot insertRecords(){
         //Only insert records if they exist and we haven't done it already
         if( !this.builtRecords.isEmpty() && this.builtRecords[0].Id == NULL ){
             insert builtRecords;
