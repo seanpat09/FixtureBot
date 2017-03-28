@@ -4,16 +4,16 @@ public class FixtureBot {
     private List<SObject> builtRecords = new List<SObject>();
     private Map<Schema.SObjectField, Object> fieldMappings = new Map<Schema.SObjectField, Object>();
 
-    public SObjectFactory( Schema.SObjectType typeOfSObject ){
+    public FixtureBot( Schema.SObjectType typeOfSObject ){
         this.typeOfSObject = typeOfSObject;
     }
 
-    public SObjectFactory setFieldMappings( Map<Schema.SObjectField, Object> fieldMappings ){
+    public FixtureBot setFieldMappings( Map<Schema.SObjectField, Object> fieldMappings ){
         this.fieldMappings = fieldMappings;
         return this;
     }
 
-    public SObjectFactory make( Integer numToBuild ){
+    public FixtureBot make( Integer numToBuild ){
         this.clearRecords();
         for( Integer n = 0; n < numToBuild; n++ ){
             SObject record = buildWithRequiredFields( this.typeOfSObject );
@@ -25,7 +25,7 @@ public class FixtureBot {
         return this;
     }
 
-    public SObjectFactory insert(){
+    public FixtureBot insert(){
         //Only insert records if they exist and we haven't done it already
         if( !this.builtRecords.isEmpty() && this.builtRecords[0].Id == NULL ){
             insert builtRecords;
@@ -37,7 +37,7 @@ public class FixtureBot {
         return builtRecords; 
     }
 
-    public SObjectFactory clear(){
+    public FixtureBot clear(){
          this.builtRecords = new List<SObject>();
          return this;
     }
