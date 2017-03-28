@@ -14,7 +14,7 @@ public class FixtureBot {
     }
 
     public FixtureBot make( Integer numToBuild ){
-        this.clearRecords();
+        this.clear();
         for( Integer n = 0; n < numToBuild; n++ ){
             SObject record = buildWithRequiredFields( this.typeOfSObject );
             for( Schema.SObjectField field : fieldMappings.keySet() ){
